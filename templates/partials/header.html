@@ -28,8 +28,13 @@
                     <li class="nav-item"><a class="nav-link text-light" href="signup.html">Hommes</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="signup.html">Enfants</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="signup.html">Maison</a></li>
-                    <li class="nav-item"><a class="nav-link" href="signup.html"><button type="button" class="btn btn-light btn-sm">Inscription</button></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><button type="button" class="btn btn-light btn-sm">Connexion</button></a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link text-light" href="{% url 'dashboard' %}">Mon Compte</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><button type="button" class="btn btn-light btn-sm">Déconnexion</button></a></li>
+                    {%  else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}"><button type="button" class="btn btn-light btn-sm">Inscription</button></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-light btn-sm">Connexion</button></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
