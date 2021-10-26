@@ -98,6 +98,12 @@ class Annonce(models.Model):
     def get_absolute_url(self):
         return reverse("annonce-detail", kwargs={"pk": self.pk})
 
+    def get_delete_url(self):
+        return reverse("annonce-delete", kwargs={"pk": self.pk})
+
+    def get_update_url(self):
+        return reverse("annonce-update", kwargs={"pk": self.pk})
+
     def __str__(self):
         return self.name
 

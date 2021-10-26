@@ -48,10 +48,10 @@
                                        <a href="{{ annonce.get_absolute_url }}" data-toggle="tooltip" title="" class="text-center fs-18 text-muted hover-primary mr-5" data-original-title="Voir"><i class="far fa-eye"></i></a>
                                    </td>
                                    <td class="align-middle text-center">
-                                       <a href="#" data-toggle="tooltip" title="" class="text-center fs-18 text-muted hover-primary mr-5" data-original-title="Modifier"><i class="fas fa-pen-alt text-center"></i></a>
+                                       <a href="{{ annonce.get_update_url }}" data-toggle="tooltip" title="" class="text-center fs-18 text-muted hover-primary mr-5" data-original-title="Modifier"><i class="fas fa-pen-alt text-center"></i></a>
                                    </td>
                                    <td class="align-middle text-center">
-                                       <a href="#" data-toggle="tooltip" title="" class="text-center fs-18 text-muted hover-primary mr-5" data-original-title="Supprimer"><i class="fas fa-trash-alt"></i></a>
+                                       <a href="{{ annonce.get_delete_url }}" data-toggle="tooltip" title="" class="text-center fs-18 text-muted hover-primary mr-5" data-original-title="Supprimer"><i class="fas fa-trash-alt"></i></a>
                                    </td>
                                </tr>
                            {% endfor %}
