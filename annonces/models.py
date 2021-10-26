@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.urls import reverse
 from .choices import CONDITION_CHOICES
 import uuid
 
@@ -13,8 +14,11 @@ class Color(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def save(self, *args, **kwargs):
-        self.name = slugify(self.slug)
-        super(Tag, self).save(*args, **kwargs)
+        self.slug = slugify(self.name)
+        super(Color, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
 
 class Size(models.Model):
@@ -24,8 +28,11 @@ class Size(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def save(self, *args, **kwargs):
-        self.name = slugify(self.slug)
-        super(Tag, self).save(*args, **kwargs)
+        self.slug = slugify(self.name)
+        super(Size, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
@@ -38,7 +45,7 @@ class Category(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def save(self, *args, **kwargs):
-        self.name = slugify(self.slug)
+        self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -52,14 +59,17 @@ class Tag(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def save(self, *args, **kwargs):
-        self.name = slugify(self.slug)
+        self.slug = slugify(self.name)
         super(Tag, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
 
 class Annonce(models.Model):
-    name = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="annonces")
-    parent = models.ForeignKey("self", related_name="variants", on_delete=models.CASCADE, blank=True, null=True)
+    souscategory = models.ForeignKey(Category, related_name="variants", on_delete=models.CASCADE, blank=True, null=True)
+    name = models.CharField(max_length=200)
     description = models.TextField(max_length=400)
     price = models.PositiveIntegerField(default=0)
     condition = models.CharField(max_length=100, choices=CONDITION_CHOICES)
@@ -81,5 +91,14 @@ class Annonce(models.Model):
     updated = models.DateTimeField(auto_now=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Annonce, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("annonce-detail", kwargs={"pk": self.pk})
+
     def __str__(self):
         return self.name
+
+

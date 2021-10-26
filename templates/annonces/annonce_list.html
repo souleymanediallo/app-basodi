@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="py-5 bg-gray-300">
+        <!-- categories -->
+        <div class="container">
+            <div class="row">
+                {% for annonce in annonces %}
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-header bg-transparent">
+                            <img src="{{ user.profile.image.url }}" class="img-fluid" width="30" height="30">
+                            <small class="text-muted">{{ user.username }}</small>
+                        </div>
+                        <img src="{{ annonce.photo_main.url }}" class="img-fluid">
+                        <div class="card-body mb-0">
+                            <a href="{{ annonce.get_absolute_url }}">
+                            <div class="d-flex justify-content-between">
+                                <p><small>{{ annonce.price }}</small></p>
+                                <p><small>{{ annonce.condition }}</small></p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- end categories -->
+    </section>
+
+{% endblock %}
