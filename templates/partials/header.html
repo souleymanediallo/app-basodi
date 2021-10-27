@@ -34,7 +34,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdownMenuLink">
                                 <a class="dropdown-item" href="{% url 'annonce-create' %}">Ajouter une Annonce</a>
                                 <a class="dropdown-item" href="{% url 'annonce-user' %}">Gérer mes Annonces</a>
-                                <a class="dropdown-item" href="user-booking-detail.html">Messages</a>
+                                <a class="dropdown-item" href="{% url 'inbox' %}">Messages</a>
                                 <a class="dropdown-item" href="user-grid.html">Mon Compte</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'logout' %}">
