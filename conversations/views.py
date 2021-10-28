@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConversationForm
 from accounts.models import Profile
 from .models import Conversation
@@ -24,8 +24,8 @@ def conversation_list(request, pk):
     return render(request, "conversations/conversation.html", context)
 
 
-def conversation_create(request, pk):
-    recipient = Profile.objects.get(id=pk)
+def conversation_create(request, conversation_id):
+    recipient = get_object_or_404(Profile, pk=conversation_id)
     form = ConversationForm()
 
     try:

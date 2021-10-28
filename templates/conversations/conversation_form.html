@@ -7,7 +7,7 @@
                 <div class="col-lg-7">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-validate" method="POST" action="{{ conversation.get_absolute_url }}">
+                            <form class="form-validate" method="POST" action="{% url "conversation-create" profile.id %}">
                                 {% csrf_token %}
                                 {% if request.user.is_authenticated == False %}
                                     <div class="form__field">

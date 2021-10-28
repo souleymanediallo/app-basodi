@@ -8,7 +8,7 @@ class ConversationForm(forms.ModelForm):
         fields = ["name", "email", "subject", "body"]
 
     def __init__(self, *args, **kwargs):
-        super(ConversationForm, self).__ini__(*args, **kwargs)
+        super(ConversationForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
             field.widget.attrs.update({"class": "form-control"})

@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.db.models.signals import post_save
 from .choices import CITY_CHOICES
+from django.urls import reverse
+import uuid
+
 
 # CustomUser
 # https://docs.djangoproject.com/en/3.2/topics/auth/customizing/

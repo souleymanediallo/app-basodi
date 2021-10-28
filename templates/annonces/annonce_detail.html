@@ -35,7 +35,10 @@
                         <h1 class="hero-heading mb-3">{{ user.username }}</h1>
                     </div>
                     <div class="text-block">
-                        <h6 class="mb-4"><a href="{{ conversation.get_absolute_url }}" class="btn btn-dark">Envoyer un message</a></h6>
+                        {% if request.user.profile.id != profile.id %}
+                            <a href="{% url "conversation-create" profile.id %}" class="btn btn-dark">Send Message </a>
+                        {% endif %}
+
                         <div class="row mb-3">
                             <div class="col-md-6 d-flex align-items-center mb-3 mb-md-0">
                                 <div class="date-tile mr-3">
@@ -51,6 +54,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="text-block">
                         <div class="row">
                             <div class="col-sm">

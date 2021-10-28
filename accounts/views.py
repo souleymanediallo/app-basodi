@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserCreationForm
 from django.contrib import messages
-from .models import CustomUser
+from .models import CustomUser, Profile
 
 
 # Create your views here.
@@ -41,3 +41,9 @@ def login_user(request):
 
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
+
+
+def user_profile(request, profile_id):
+    profile = get_object_or_404(Profile, pk=profile_id)
+    context = {"profile": profile}
+    return render(request, "accounts/user_profile.html", context)
