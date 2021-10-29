@@ -24,12 +24,12 @@ def conversation_list(request, pk):
     return render(request, "conversations/conversation.html", context)
 
 
-def conversation_create(request, conversation_id):
-    recipient = get_object_or_404(Profile, pk=conversation_id)
+def conversation_create(request, profile_id):
+    recipient = get_object_or_404(Profile, pk=profile_id)
     form = ConversationForm()
 
     try:
-        sender = request.user.profile
+        sender = request.user
     except:
         sender = None
 
@@ -38,15 +38,15 @@ def conversation_create(request, conversation_id):
         if form.is_valid():
             conversation = form.save(commit=False)
             conversation.sender = sender
-            conversation.recipient = recipient
+            conversation.recipient = recipient.user
 
             if sender:
-                conversation.name = sender.name
+                conversation.name = sender.username
                 conversation.email = sender.email
             conversation.save()
 
             messages.success(request, "Votre message été envoyé !")
             return redirect("home")
 
-        context = {"recipient": recipient, "form": form}
-        return render(request, "conversations/conversation_form.html", context)
+    context = {"recipient": recipient, "form": form}
+    return render(request, "conversations/conversation_form.html", context)

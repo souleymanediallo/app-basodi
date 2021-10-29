@@ -8,5 +8,5 @@ urlpatterns = [
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 
     path("dashboard/", views.dashboard, name="dashboard"),
-    path("profile/<int:profile_id>/", views.user_profile, name="user-profile"),
+    path("profile/<uuid:profile_id>/", views.user_profile, name="user-profile"),
 ]

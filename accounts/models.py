@@ -67,6 +67,10 @@ class Profile(models.Model):
     youtube = models.URLField(max_length=400, blank=True, null=True)
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+
+    def get_absolute_url(self):
+        return reverse("user-profile", kwargs={"pk": self.pk})
 
 
 def post_save_receiver(sender, instance, created, **kwargs):

@@ -36,7 +36,7 @@
                     </div>
                     <div class="text-block">
                         {% if request.user.profile.id != profile.id %}
-                            <a href="{% url "conversation-create" profile.id %}" class="btn btn-dark">Send Message </a>
+                            <a href="{% url 'conversation-create' annonce.author.profile.pk %}" class="btn btn-dark">Send Message </a>
                         {% endif %}
 
                         <div class="row mb-3">
