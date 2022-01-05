@@ -7,380 +7,66 @@
         <div class="container py-6 py-lg-7 text-white overlay-content text-center">
             <div class="row">
                 <div class="col-xl-10 mx-auto">
-                    <h1 class="display-3 font-weight-bold text-shadow">Vendez vos vêtements traditionnel</h1>
-                    <p class="text-lg text-shadow">Une large gamme de vêtement disponible !</p>
+                    <p class="text-lg text-shadow text-uppercase">Une large gamme de vêtements disponibles !</p>
+                    <form>
+                        <div class="input-label-absolute input-label-absolute-left input-reset w-100">
+                            <label class="label-absolute" for="searchcollapsed_search"><i class="fa fa-search"></i><span class="sr-only">Que recherchez vous ?</span></label>
+                            <input type="text" placeholder="Rechercher des articles" class="form-control form-control-sm border-0 shadow-0">
+                            <button class="btn btn-reset btn-sm" type="reset"><i class="fa-times fas">           </i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- products -->
-    <section class="py-6 bg-gray-100">
-        <div class="container">
-            <div class="text-center pb-lg-4">
-                <p class="subtitle text-success">Vous cherchez un bon restaurant ?</p>
-                <h2 class="mb-5">Voir les restaurants les plus populaires autour de vous </h2>
-            </div>
-        </div>
+    <!-- new product -->
+    <section class="py-6">
         <div class="container-fluid">
-            <!-- Slider main container-->
-            <div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-3">
-                <!-- Additional required wrapper-->
-                <div class="swiper-wrapper pb-5">
-                    <!-- Slides-->
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-1.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 1</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Italien</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#" class="text-success">Plat,</a><a class="mr-1" href="#" class="text-success">Entrée,</a><a class="mr-1" href="#" class="text-success">Déssert</a></p>
-                                </div>
+            <div class="text-center pb-lg-4">
+                <h2 class="mb-5 text-uppercase">Les Dernières Annonces</h2>
+            </div>
+            <div class="row">
+                <!-- venue item-->
+                {% for annonce in annonces %}
+                <div class="col-md-6 col-lg-3 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url('{{ annonce.photo_main.url }}'); min-height: 350px;"><a class="tile-link" href="{{ annonce.get_absolute_url }}"></a>
+                            <div class="card-img-overlay-bottom z-index-20">
+                                <h4 class="text-white text-shadow">{{ annonce.name }}</h4>
+                                <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
+                                </p>
+                            </div>
+                            <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                <div class="badge badge-transparent badge-pill px-3 py-2">{{ annonce.category }}</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
+                                <svg class="svg-icon text-white">
+                                    <use xlink:href="#heart-1"> </use>
+                                </svg></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://i.etsystatic.com/25628084/r/il/f62ad7/2632282074/il_1588xN.2632282074_s1l7.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 2</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Français</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-sm text-muted text-uppercase mb-1">{{ annonce.price }}FCFA</p>
+                                <p class="text-sm text-muted text-uppercase mb-1"> L/34</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://i.etsystatic.com/17963141/r/il/d71fdd/3023560076/il_1588xN.3023560076_aw9h.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 3</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Italien</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://i.etsystatic.com/25628084/r/il/f62ad7/2632282074/il_1588xN.2632282074_s1l7.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 4</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Music club</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Music,</a><a class="mr-1" href="#">Club,</a><a class="mr-1" href="#">Rock</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/photo/restaurant-1504087697492-238a6bf49ce8.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 5</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Restaurant</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/photo/restaurant-1505275350441-83dcda8eeef5.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 6</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Café</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(https://d19m59y37dris4.cloudfront.net/directory/1-6-1/img/photo/restaurant-1430931071372-38127bd472b8.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 7</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Restaurants</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-1.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 8</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Restaurant</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-2.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 9</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Music club</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#">Plat,</a><a class="mr-1" href="#">Entrée,</a><a class="mr-1" href="#">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-3.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 10</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Music club</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">Mr <a href="#" class="text-dark">Tony</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#" class="text-success">Plat,</a><a class="mr-1" href="#" class="text-success">Entrée,</a><a class="mr-1" href="#" class="text-success">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-4.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 11</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Restaurant</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">By <a href="#" class="text-dark">Matt Damon</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#" class="text-success">Plat,</a><a class="mr-1" href="#" class="text-success">Entrée,</a><a class="mr-1" href="#" class="text-success">Déssert</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto px-2">
-                        <!-- venue item-->
-                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
-                            <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url(images/restaurants/restaurant-5.jpg); min-height: 200px;"><a class="tile-link" href="restaurant-detail.html"></a>
-                                    <div class="card-img-overlay-bottom z-index-20">
-                                        <h4 class="text-white text-shadow">Resto 12</h4>
-                                        <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
-                                        </p>
-                                    </div>
-                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
-                                        <div class="badge badge-transparent badge-pill px-3 py-2">Café</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
-                                        <svg class="svg-icon text-white">
-                                            <use xlink:href="#heart-1"> </use>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-sm text-muted text-uppercase mb-1">By <a href="#" class="text-dark">Matt Damon</a></p>
-                                    <p class="text-sm mb-0"><a class="mr-1" href="#" class="text-success">Plat,</a><a class="mr-1" href="#" class="text-success">Entrée,</a><a class="mr-1" href="#" class="text-success">Déssert</a></p>
-                                </div>
+                            <div class="profile-img mb-0">
+                            <img class="avatar avatar-sm avatar-border-white mr-2" src="{{ annonce.author.profile.image.url }}">
+                            <small>{{ annonce.author.username }}</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- If we need pagination-->
-                <div class="swiper-pagination"></div>
+                {% endfor %}
             </div>
-            <div class="text-center mt-5"><a class="btn btn-outline-success" href="restaurant-list.html">Voir tous les restaurants</a></div>
         </div>
     </section>
+    <!-- products -->
+
 
     <!-- Our picks section-->
-    <section class="py-6">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-md-8">
-                    <p class="subtitle text-success">Besoin d'une tenue traditionnelle ?</p>
-                    <h2>Vous êtes au bon endroit</h2>
-                </div>
-                <div class="col-md-4 d-md-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="restaurant-list.html">
-                    voir les catégories<i class="fas fa-angle-double-right ml-2"></i></a></div>
-            </div>
-            <div class="row">
-                <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://i.etsystatic.com/25628084/r/il/b125b3/2728437287/il_1588xN.2728437287_azqi.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="restaurant-list.html"> </a>
-                        <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                            <h3 class="text-shadow text-uppercase mb-0">Mariage</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://i.etsystatic.com/16803487/r/il/c68b43/1393383026/il_1588xN.1393383026_6of9.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="restaurant-list.html"> </a>
-                        <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                            <h3 class="text-shadow text-uppercase mb-0">tenue de fête</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://i.etsystatic.com/16803487/r/il/c19622/2922507836/il_1588xN.2922507836_sd4t.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="restaurant-list.html"> </a>
-                        <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                            <h3 class="text-shadow text-uppercase mb-0">RÉGIME</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://i.etsystatic.com/16803487/r/il/908fcf/2989606870/il_1588xN.2989606870_ew7d.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="restaurant-list.html"> </a>
-                        <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                            <h3 class="text-shadow text-uppercase mb-0">Femmes</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://i.etsystatic.com/17963141/r/il/d71fdd/3023560076/il_1588xN.3023560076_aw9h.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="restaurant-list.html"> </a>
-                        <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
-                            <h3 class="text-shadow text-uppercase mb-0">Hommes</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="pt-4 pb-6">
         <div class="container">
             <div class="pb-lg-4">
-                <p class="text-success font-weight-bold">Pourquoi choisir APP RESTO ?</p>
+                <p class="font-weight-bold">Vente de vêtements en ligne</p>
                 <h2 class="mb-5">Découvrir vos avantages</h2>
             </div>
             <div class="row">
@@ -392,7 +78,7 @@
                             </svg>
                         </div>
                         <h3 class="h6 text-uppercase">Visibilité</h3>
-                        <p class="text-muted text-sm">Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                        <p class="text-muted text-sm">Faire un choix parmi une large gamme de produits disponibles.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
@@ -424,42 +110,12 @@
                                 <use xlink:href="#pay-1"> </use>
                             </svg>
                         </div>
-                        <h3 class="h6 text-uppercase">Client satisfaits</h3>
-                        <p class="text-muted text-sm">Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                        <h3 class="h6 text-uppercase">Aucune commission</h3>
+                        <p class="text-muted text-sm">L'équipe BASODI ne prélève aucune commission sur vos ventes.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Divider Section-->
-    <section class="py-6 py-lg-7 position-relative dark-overlay"><img class="bg-image" src="{% static "images/europe-1.jpg" %}" alt="">
-        <div class="container">
-            <div class="overlay-content text-white py-lg-5 text-center">
-                <p class="subtitle text-white letter-spacing-4 mb-4">Ginger</p>
-                <h3 class="display-3 font-weight-bold text-serif text-shadow mb-5">Voyage en Afrique</h3>
-                <p class="lead text-shadow mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
-                </p>
-                <a class="btn btn-success" href="restaurant-list.html">Découvrir</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Divider Section-->
-    <section class="py-6 bg-gray-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-left">
-                    <p class="text-muted mb-0">Vous souhaitez développer un concept axé sur la livraison depuis votre cuisine actuelle ? C'est exactement ce que nous aidons les restaurants à faire, grâce aux précieuses analyses de données fournies par la plateforme APP RESTO.</p>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                    <div class="text-center">
-                        <p class="mb-2"><a class="btn btn-lg btn-outline-dark" href="dashboard.html">Connexion</a></p>
-                        <p class="text-small font-weight-bold">Vous n'avez pas de compte ? Création</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 {% endblock %}

@@ -5,21 +5,32 @@
         <!-- categories -->
         <div class="container">
             <div class="row">
+                <!-- venue item-->
                 {% for annonce in annonces %}
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-header bg-transparent">
-                            <img src="{{ user.profile.image.url }}" class="img-fluid" width="30" height="30">
-                            <small class="text-muted">{{ user.username }}</small>
-                        </div>
-                        <img src="{{ annonce.photo_main.url }}" class="img-fluid">
-                        <div class="card-body mb-0">
-                            <a href="{{ annonce.get_absolute_url }}">
-                            <div class="d-flex justify-content-between">
-                                <p><small>{{ annonce.price }}</small></p>
-                                <p><small>{{ annonce.condition }}</small></p>
+                <div class="col-md-6 col-lg-3 mb-5 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-img-top overflow-hidden dark-overlay bg-cover" style="background-image: url('{{ annonce.photo_main.url }}'); min-height: 350px;"><a class="tile-link" href="{{ annonce.get_absolute_url }}"></a>
+                            <div class="card-img-overlay-bottom z-index-20">
+                                <h4 class="text-white text-shadow">{{ annonce.name }}</h4>
+                                <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                    </i>
+                                </p>
                             </div>
-                            </a>
+                            <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                <div class="badge badge-transparent badge-pill px-3 py-2">{{ annonce.category }}</div><a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
+                                <svg class="svg-icon text-white">
+                                    <use xlink:href="#heart-1"> </use>
+                                </svg></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-sm text-muted text-uppercase mb-1">{{ annonce.price }}FCFA</p>
+                                <p class="text-sm text-muted text-uppercase mb-1"> L/34</p>
+                            </div>
+                            <div class="profile-img mb-0">
+                                <img class="avatar avatar-sm avatar-border-white mr-2" src="{{ annonce.author.profile.image.url }}">
+                                <small>{{ annonce.author.username }}</small>
+                            </div>
                         </div>
                     </div>
                 </div>

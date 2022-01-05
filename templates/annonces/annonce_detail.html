@@ -31,8 +31,8 @@
                         <li class="breadcrumb-item active">Trip to London   </li>
                     </ol>
                     <div class="text-block">
-                        <p class="subtitle">{{ user.profile.city }}</p>
-                        <h1 class="hero-heading mb-3">{{ user.username }}</h1>
+                        <p class="subtitle">{{ annonce.author.profile.city }}</p>
+                        <h1 class="hero-heading mb-3">{{ annonce.author.username }}</h1>
                     </div>
                     <div class="text-block">
                         {% if request.user.profile.id != profile.id %}
@@ -72,7 +72,7 @@
                             <div class="media-body">
                                 <h6>Entire appartment</h6>
                                 <p class="text-muted mb-0">Hosted by <a href="user-profile.html" class="text-reset">Jack London</a></p>
-                            </div><a href="user-profile.html"><img class="avatar avatar-lg avatar-border-white ml-4" src="images/avatar-3.jpg" alt="Jack London"></a>
+                            </div><a href="user-profile.html"><img class="avatar avatar-lg avatar-border-white ml-4" src="{{ annonce.author.profile.image.url }}" alt="Jack London"></a>
                         </div>
                     </div>
                     <div class="text-block">

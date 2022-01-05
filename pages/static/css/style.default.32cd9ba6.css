@@ -13153,7 +13153,6 @@ button.mfp-close {
   height: 100%;
   content: " ";
   opacity: 0.3;
-  background: #000;
 }
 .light-overlay::after {
   opacity: 0.3;

@@ -1,3 +1,24 @@
+COLOR_CHOICES = [
+    ('NE', 'Noir'),
+    ('NS', 'Marron'),
+    ('TE', 'Beige'),
+    ('BE', 'Gris'),
+    ('ST', 'Blanc'),
+    ('ST', 'Bleu'),
+    ('ST', 'Bleu pétrole'),
+    ('ST', 'Turquoise'),
+    ('ST', 'Vert'),
+    ('ST', 'Vert olive'),
+    ('ST', 'Jaune'),
+    ('ST', 'Orange'),
+    ('ST', 'Rouge'),
+    ('ST', 'Rose'),
+    ('ST', 'Violet'),
+    ('ST', 'Doré'),
+    ('ST', 'Argenté'),
+    ('ST', 'Multicolore')
+]
+
 CONDITION_CHOICES = [
     ('NE', 'Neuf avec étiquettes'),
     ('NS', 'Neuf sans étiquettes'),
