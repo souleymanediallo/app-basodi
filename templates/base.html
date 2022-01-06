@@ -51,6 +51,12 @@
     }
     injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg');
 
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
 </script>
 <!-- jQuery-->
 <script src="{% static "js/jquery.min.js" %}"></script>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'conversations.apps.ConversationsConfig',
     'pages.apps.PagesConfig',
     'posts.apps.PostsConfig',
+    'items.apps.ItemsConfig',
 ]
 
 MIDDLEWARE = [
